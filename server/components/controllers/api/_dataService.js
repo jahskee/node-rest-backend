@@ -2,10 +2,10 @@ const settings = require('../../utils/settings');
 
 dataService = {};
 
-dataService.list = async (Model) => {
+dataService.list = async (Model, paramObj) => {
   let dataObjs;
   try {
-    dataObjs = await Model.find({});    
+    dataObjs = await Model.find({'category': /Science/}, ['category', 'question']);    
   } catch (err) {
     throw `\n${err} \n- searchObj=${JSON.stringify(searchObj)}\n`;
   }

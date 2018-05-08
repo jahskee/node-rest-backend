@@ -5,7 +5,7 @@ const contactController = {};
 
 contactController.list = async (req, res) => {
   try {
-    const contacts = await _dataService.list(Contact);       
+    const contacts = await _dataService.list(Contact, {'category': 'Engilsh'});       
     if (contacts) {
       res.json(contacts);
     } else {

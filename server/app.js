@@ -38,6 +38,9 @@ app.use(bodyparser.json());
 const apiContacts = require('./components/routes/api/api-contacts');
 app.use('/api/contacts', apiContacts);
 
+const apiQuestions = require('./components/routes/api/api-questions');
+app.use('/api/questions', apiQuestions);
+
 // add angular files
 app.use('/', express.static(path.join(__dirname,'../client/dist')));
 

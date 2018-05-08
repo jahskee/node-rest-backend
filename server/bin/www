@@ -36,11 +36,6 @@ secured_server.on('listening', onListening);
 var server = http.createServer(app);
 server.listen(port);
 
-
-
-
-
-
 // set up a route to redirect http to https
 /*
 http.get('/page1', function(req, res) {  

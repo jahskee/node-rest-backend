@@ -1,11 +1,11 @@
-const Contact = require('../../models/contactModel');
+const contacts = require('../../models/contactModel');
 const settings = require('../../utils/settings');
 
 contactService = {};
 
-contactService.list = async (searchObj) => {
+contactService.list = async (searchObj) => {  
   try {
-    contacts = await Contact.find(searchObj);    
+    contacts = await Contact.find({searchObj});    
   } catch (err) {
     throw `\n${err} \n- searchObj=${JSON.stringify(searchObj)}\n`;
   }

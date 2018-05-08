@@ -7,12 +7,12 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
-import { Page1Component } from './page1/page1.component';
-import { AddContactFormComponent } from './page1/add-contact-form/add-contact-form.component';
-import { ContactListComponent } from './page1/contact-list/contact-list.component';
-import { Page2Component } from './page2/page2.component';
+import { Page1Component } from './pages/contact/page1/page1.component';
+import { AddContactFormComponent } from './pages/contact/page1/add-contact-form/add-contact-form.component';
+import { ContactListComponent } from './pages/contact/page1/contact-list/contact-list.component';
+import { Page2Component } from './pages/contact/page2/page2.component';
 
-import { ContactService } from './services/contact.service';
+import { ContactService } from './services/contact/contact.service';
 import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [

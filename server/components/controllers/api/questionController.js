@@ -1,14 +1,15 @@
 const Question = require('../../models/questionModel');
 const settings = require('../../utils/settings');
-const questionService = require('./questionService');
+const _dataService = require('./_dataService');
 
-const questionController = {};
 
-questionController.list = async (req, res) => {
+const dataController = {};
+
+dataController.list = async (req, res) => {
   try {
-    const question = await questionService.list({});    
-    if (question) {
-      res.json(question);
+    const questions = await _dataService.list(Question);    
+    if (questions) {
+      res.json(questions);
     } else {
       throw 'contacts not found';
     }
@@ -18,10 +19,10 @@ questionController.list = async (req, res) => {
   } 
 };
 
-questionController.create = async(req, res) => { 
+dataController.create = async(req, res) => { 
   try {
     let question = req.body;
-    question = await questionService.create(question);
+    question = await _dataService.create(Question, question);
     res.json(question)
   } catch (err) {    
     console.log(`error saving contact ${err}`);
@@ -29,24 +30,24 @@ questionController.create = async(req, res) => {
   } 
 }
 
-questionController.read = async (req, res) => {
-  question_id = req.params.contact_id;
-  console.log(question_id)
-  let question;
+dataController.read = async (req, res) => {
+  id = req.params.id;
+  console.log(id)
+  let dataObj;
   try {
-    question = await questionService.read(question_id);
+    dataObj = await _dataService.read(Question, id);
     res.json(question)
   } catch (err) {
     console.log(`no record found: ${err}`);
     res.end();
   }
-  return question;
+  return dataObj;
 }
 
-questionController.update = async (req, res) => { 
+dataController.update = async (req, res) => { 
   let updateQuestion = req.body;
   try {
-    question = await questionService.update(updateQuestion)
+    question = await _dataService.update(Question, updateQuestion)
     res.json(question)   
   } catch(err) {
     console.log(`${err}, contactId=${question._id}`)
@@ -54,12 +55,12 @@ questionController.update = async (req, res) => {
   } 
 }
 
-questionController.delete = async (req, res) => {
+dataController.delete = async (req, res) => {
   const question_id = req.params.question_id
 
   let question;
   try {
-    question = questionService.delete(question_id);
+    question = _dataService.delete(Question, question_id);
     console.log(`successfully deleted questionId=${question_id}`)
     res.json(question)
   } catch (err) {
@@ -68,4 +69,4 @@ questionController.delete = async (req, res) => {
   }
 }
 
-module.exports = questionController;
+module.exports = dataController;

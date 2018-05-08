@@ -34,6 +34,22 @@ app.use(logger('dev'));
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 
+
+// set the request headers to allow cross origin resource sharing
+app.use('/api', function(req, res, next) {
+	res.set({
+	  'Access-Control-Allow-Origin':'*',
+	  'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+	  'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS',
+	  'Content-type': 'application/json',
+	});
+   
+	if (req.method === 'OPTIONS') {
+	  return res.status(200).end();
+	}
+	next();
+});
+  
 // setup routes
 const apiContacts = require('./components/routes/api/api-contacts');
 app.use('/api/contacts', apiContacts);

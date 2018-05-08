@@ -1,0 +1,61 @@
+#page2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  flex-direction: column;
+
+  .nav {
+    padding: 10px 0;
+  }
+
+  #contactId {
+    padding-left: 10px;
+  }
+ 
+}
+
+#contact-view {
+  //padding: 20px;
+ 
+  #info {
+    padding: 20px;
+  }
+
+  #photo {
+    img {
+      width: 200px;
+    }
+  }
+
+  table {
+    text-align: left;
+    margin: 10px;
+    #label {
+      width: 100px
+    }
+    #input {
+      width: 200px;
+    }
+
+    input {
+      width: 300px;
+      margin-bottom: 5px;
+    }
+  }
+
+  #buttons {
+    margin-top: 20px;   
+  }
+
+  #row2 {
+    display: flex;
+    flex-direction: row;
+  
+  }
+
+  #btn-update {
+    margin-right: 20px;    
+  }
+
+}

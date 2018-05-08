@@ -1,0 +1,12 @@
+FROM fedora:27
+MAINTAINER jahskee@yahoo.com
+
+RUN dnf -y update
+RUN dnf -y install nodejs git nano procps net-tools
+
+RUN mkdir -p /home/releasemgr/meanstack
+ADD . /home/releasemgr/meanstack
+RUN cd /home/releasemgr/meanstack/server
+
+ADD ./run.sh /root
+RUN chmod 775 /root/run.sh

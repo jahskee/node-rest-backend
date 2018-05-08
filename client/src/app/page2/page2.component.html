@@ -1,0 +1,92 @@
+<div id='page2'>
+  
+  <div id='contact-view'  class="card">
+      <div class='card-header'>
+          <h4>View Contact</h4>
+      </div>
+      <div class='card-body'>
+          <div id='row2'>
+              <div id='photo'>
+                <img src='/assets/page2/images/blank-face.jpeg'>
+              </div>
+              <div id='info' *ngIf='isEditMode'>
+                <form (ngSubmit)='onSubmitSave(contact.id)' [formGroup]='contactForm' >
+                  <table>
+                    <tr>
+                      <td id='label'>ID</td>               
+                      
+                      <td id='input'>
+                        <span>{{contact._id}}</span>                 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Firstname</td>
+                      <td class='form-group'>
+                        <input type='text' formControlName='firstname' placeholder="Firstname" class='form-control' />
+                        <small class="form-text text-danger" *ngIf="contactForm.get('firstname').hasError('required') && contactForm.get('firstname').touched">
+                            Firstname is required!
+                        </small>      
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Lastname</td>
+                      <td class='form-group'>
+                        <input type='text' formControlName='lastname' placeholder="Lastname"  class='form-control'  />
+                        <small class="form-text text-danger" *ngIf="contactForm.get('lastname').hasError('required') && contactForm.get('lastname').touched">
+                            Lastname is required!
+                        </small> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Phone</td>
+                      <td class='form-group'>
+                        <input type='text' formControlName='phone' placeholder="Phone"  class='form-control' />
+                        <small class="form-text text-danger" *ngIf="contactForm.get('phone').hasError('required') && contactForm.get('phone').touched">
+                            Phone is required!
+                        </small> 
+                      </td>
+                    </tr>
+                  </table>
+                  <div id='buttons'>
+                      <button class="btn btn-secondary" [disabled]="contactForm.invalid" >Save</button>
+                      <button class="btn btn-secondary" (click)='clickCancel()' >Cancel</button>
+                    
+                  </div>
+                </form>
+            </div>
+      
+            <div id='info' *ngIf='!isEditMode' >             
+                    <table>
+                        <tr>
+                          <td id='label'>ID</td>
+                          <td id='input'>{{contact._id}}</td>
+                        </tr>
+                        <tr>
+                          <td>Firstname</td>
+                          <td>{{contact.firstname}}</td>
+                        </tr>
+                        <tr>
+                          <td>Lastname</td>
+                          <td>{{contact.lastname}}</td>
+                        </tr>
+                        <tr>
+                          <td>Phone</td>
+                          <td>{{contact.phone}}</td>
+                        </tr>
+                      </table>
+                      <div class='alert alert-success' style='margin: 0;margin-top: 5px;' *ngIf="isShowMessage">
+                          {{message}}         
+                      </div>
+
+                      <div id='buttons' *ngIf="isShowButtons">
+                          <button class="btn btn-secondary" (click)='clickEdit()'>Edit</button>  
+                          <button class="btn btn-secondary" (click)='deleteContact(contact._id)'>Delete</button>                           
+                      </div>
+                     
+            
+        </div>
+      </div>
+  </div> 
+ 
+</div>
+<a style='width: 100px; text-align: center; margin-top: 10px' routerLink='/page1' routerLinkActive='active' class='btn btn-secondary'>Back</a>

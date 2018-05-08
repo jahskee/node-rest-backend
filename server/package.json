@@ -1,0 +1,44 @@
+{
+  "name": "cscie31-04",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Assignment #4",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "start-dev": "nodemon --inspect ./bin/www",
+    "watch-scss": "node-sass --recursive --watch --include-path scss src/scss/styles.scss --output public/stylesheets/",
+    "watch": "npm run start-dev & npm run watch-scss &"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "compression": "^1.7.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^5.0.1",
+    "es6-promise": "^4.2.4",
+    "express": "~4.15.5",
+    "express-https-redirect": "^1.0.0",
+    "express-session": "^1.15.6",
+    "helmet": "^3.12.0",
+    "isomorphic-fetch": "^2.2.1",
+    "mongoose": "^5.0.11",
+    "morgan": "~1.9.0",
+    "pug": "2.0.0-beta11",
+    "serve-favicon": "~2.4.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HarvardDCENode/assignment-4-express-routing-mongodb-mongoose-jahskee.git"
+  },
+  "keywords": [
+    "cscie31",
+    "assignment4"
+  ],
+  "author": "Jaizon Lubaton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HarvardDCENode/assignment-4-express-routing-mongodb-mongoose-jahskee/issues"
+  },
+  "homepage": "https://github.com/HarvardDCENode/assignment-4-express-routing-mongodb-mongoose-jahskee#readme"
+}

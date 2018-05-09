@@ -45,7 +45,7 @@ contactController.read = async (req, res) => {
 }
 
 contactController.update = async (req, res) => { 
-  let updateContact = req.body;
+  let updateContact = req.body;Error: Route.get() 
   try {
     contact = await _dataService.update(Contact, updateContact)
     res.json(contact)   

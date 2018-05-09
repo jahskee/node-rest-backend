@@ -2,11 +2,12 @@ const _dataService = require('./_dataService');
 
 class DataController {  
 
-  constructor() {     
-   
-    this.list2 = async (req, res, Model, searchObj={}, selectFields=[]) => {         
+  constructor(Model) {     
+    this.dataModel = Model;
+
+    this._list = async (req, res, searchObj={}, selectFields=[]) => {         
             try {           
-              const collection = await _dataService.list(Model, searchObj, selectFields);    
+              const collection = await _dataService.list(this.dataModel, searchObj, selectFields);    
               if (collection) {
                 res.json(collection);
               } else {

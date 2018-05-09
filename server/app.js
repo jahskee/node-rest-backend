@@ -81,6 +81,6 @@ app.use(function(err, req, res, next) {
 	res.render('error');
 });
 
-console.log({...process.env, APP_DB_USER:'', APP_DB_PASSWORD:''});
+//console.log({...process.env, APP_DB_USER:'', APP_DB_PASSWORD:''});
 
 module.exports = app;

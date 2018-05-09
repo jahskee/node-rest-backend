@@ -51,9 +51,6 @@ app.use('/api', function(req, res, next) {
 });
   
 // setup routes
-const apiContacts = require('./components/routes/api/api-contacts');
-app.use('/api/contacts', apiContacts);
-
 const apiQuestions = require('./components/routes/api/api-questions');
 app.use('/api/questions', apiQuestions);
 

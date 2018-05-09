@@ -28,7 +28,7 @@ class DataController {
       );
       return collection;
     };
-    /*
+    
     this.create = async(req, res) => { 
       try {
         let dataObj = req.body;
@@ -40,7 +40,7 @@ class DataController {
         res.end();
       } 
     }
-    */
+    
   } // end of constructor
 } // end of class
 

@@ -21,7 +21,7 @@ dataService.create = async (Model, paramObj) => {
   return dataObj;
 };
 
-dataService.read = async (Model, id) => {
+dataService.findOne = async (Model, id) => {
   let dataObj;
   try {
     dataObj = await Model.findOne({_id: id}); 

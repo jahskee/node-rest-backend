@@ -40,6 +40,18 @@ class DataController {
         res.end();
       } 
     }
+
+    this.read = async (req, res) => {
+      const id = req.params.id
+      let dataObj;
+      try {
+        dataObj = await _dataService.findOne(this.dataModel, id);
+        res.json(dataObj);
+      } catch (err) {
+        console.log(err);
+        res.end();
+      }
+    };
     
   } // end of constructor
 } // end of class

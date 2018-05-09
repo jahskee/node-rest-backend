@@ -6,9 +6,10 @@ class QuestionController extends DataController {
   constructor(model) {
     super(model);
 
-    // -------- custom CRUD ------------
-    this.searchScienceIds = async (req, res) => {
+    /* ===================== custom CRUD ====================== */
 
+    // -------- search category = 'Science' ------------
+    this.searchScienceIds = async (req, res) => {
       //limit = req.params.limit
       let collection;
       try {
@@ -20,7 +21,7 @@ class QuestionController extends DataController {
       }
     };
 
-      // -------- custom CRUD ------------
+      // -------- search category = 'English' ------------
       this.searchEnglishIds = async (req, res) => {
         let collection;
         try {

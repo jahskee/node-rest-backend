@@ -10,6 +10,7 @@ const controller = new DataController(Example);
 2. controller.create(req, res) 
    - requires x-www-form-urlencoded to test in Postman
 
+3. controller.read(req, res)
 
 ---private function2
 3. this._search(queryObj={}, fields=[], limit = null)

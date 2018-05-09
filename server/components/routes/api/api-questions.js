@@ -5,11 +5,10 @@ var router = express.Router();
 const questionController = require('../../controllers/api/questionController')
 
 
-router.get('/', questionController.list);
+router.get('/list', questionController.list);
 router.post('/create', questionController.create);
+router.get('/read/:id', questionController.read);
 
-
-//router.get('/:id', questionController.read);
 //router.put('/update', questionController.update);
 //router.delete('/delete/:id', questionController.delete);
 

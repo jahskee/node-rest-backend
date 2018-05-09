@@ -4,7 +4,7 @@ class DataController {
 
   constructor() {     
    
-    this.list = async (req, res, Model, searchObj={}, selectFields=[]) => {         
+    this.list2 = async (req, res, Model, searchObj={}, selectFields=[]) => {         
             try {           
               const collection = await _dataService.list(Model, searchObj, selectFields);    
               if (collection) {

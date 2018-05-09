@@ -5,8 +5,8 @@ const Question = require('../../models/questionModel');
 
 const controller = new DataController();
 
-controller.list2 = (req, res) => {
-  controller.list(req, res, Question);
+controller.list = (req, res) => {
+  controller.list2(req, res, Question);
 }
 
 

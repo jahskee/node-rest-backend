@@ -1,7 +1,9 @@
 const Contact = require('../../models/contactModel');
 const _dataService = require('./_dataService');
+const dataController = require('./_dataController');
 
-const contactController = {};
+
+const contactController = dataController;
 
 contactController.list = async (req, res) => {
   try {

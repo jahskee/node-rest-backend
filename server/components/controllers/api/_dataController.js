@@ -21,7 +21,19 @@ class DataController {
         res.end();
       }    
     }
-  }
-}  
+
+    this.create = async(req, res) => { 
+      try {
+        let dataObj = req.body;
+        console.log(dataObj)
+        dataObj = await _dataService.create(this.dataModel, dataObj);
+        res.json(dataObj)
+      } catch (err) {    
+        console.log(`error saving ${err}`);
+        res.end();
+      } 
+    }
+  } // end of constructor
+} // end of class  
    
 module.exports = DataController

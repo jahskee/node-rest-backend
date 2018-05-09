@@ -6,9 +6,11 @@ class QuestionController extends DataController {
   constructor(model) {
     super(model);
 
+    // -------- custom CRUD ------------
     this.searchScienceIds = async (req, res) => {
-      let collection;
 
+      //limit = req.params.limit
+      let collection;
       try {
         collection = await this._search({'category': /Science/}, ['_id'], 10);
         res.json(collection);
@@ -17,12 +19,22 @@ class QuestionController extends DataController {
         res.end();
       }
     };
-  }
 
-  searchScienceIds() {
-      
-  }
-}
+      // -------- custom CRUD ------------
+      this.searchEnglishIds = async (req, res) => {
+        let collection;
+        try {
+          collection = await this._search({'category': /English/}, ['_id'], 10);
+          res.json(collection);
+        } catch (err) {
+          console.log(err);
+          res.end();
+        }
+      };
+  
+
+  } // end constructor
+} // end clsss
 
 const controller = new QuestionController(Question);
 

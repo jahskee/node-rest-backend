@@ -15,5 +15,5 @@ router.post('/create', questionController.create);
 
 // custom searches
 router.get('/science/ids', questionController.searchScienceIds);
-
+router.get('/english/ids', questionController.searchEnglishIds);
 module.exports = router;

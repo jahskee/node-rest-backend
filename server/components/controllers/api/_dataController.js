@@ -4,9 +4,11 @@ const _dataService = require('./_dataService');
 
 class DataController {  
 
-  // I have to add instant CRUD methods in the constructor
-  // not sure why it's not working when i add it outside constructor.
-  // Possible issue is due to the binding of 'this'
+  /*  
+      I have to add instant CRUD methods in the constructor
+      not sure why it's not working when i add it outside constructor.
+      Possible issue is due to the binding of 'this'
+  */
   constructor(Model) {     
     
     this.dataModel = Model;

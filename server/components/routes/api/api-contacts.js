@@ -4,7 +4,7 @@ var router = express.Router();
 
 const contactController = require('../../controllers/api/contactController')
 
-router.get('/', contactController.list);
+router.get('/:limit', contactController.list);
 router.post('/create', contactController.create);
 router.get('/:contact_id',contactController.read);
 router.put('/update',contactController.update);

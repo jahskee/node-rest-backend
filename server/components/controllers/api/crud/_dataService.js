@@ -1,9 +1,9 @@
 dataService = {};
 
-dataService.list = async (Model, searchObj, selectFields) => {
+dataService.list = async (Model, searchObj, selectFields, limit) => {
   let dataObjs;
   try {
-    dataObjs = await Model.find(searchObj, selectFields);    
+    dataObjs = await Model.find(searchObj, selectFields).limit(limit);    
   } catch (err) {
     throw `\n${err} \n- searchObj=${JSON.stringify(searchObj)}\n`;
   }
@@ -27,7 +27,7 @@ dataService.read = async (Model, id) => {
     dataObj = await Model.findOne({_id: id}); 
   } catch (err) {
     throw `\n${err} \n - Id=${id}\n`;
-  }          Question
+  }        
   return dataObj;   
 };
 

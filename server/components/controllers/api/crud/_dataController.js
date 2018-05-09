@@ -13,18 +13,22 @@ class DataController {
     
     this.dataModel = Model;
 
-    this.list = async (req, res, searchObj={}, selectFields=[]) => {         
-      try {           
-        const collection = await _dataService.list(this.dataModel, searchObj, selectFields);    
-        if (collection) {
-          res.json(collection);
-        } else {
-          throw 'collection not found';
-        }
+    this.list = async (req, res) => {
+      let collection;
+     
+      try {
+        collection = await this._search()     
+        res.json(collection)
       } catch (err) {
-        console.log(`${err}`);
-        res.end();
-      }    
+        console.log(err)
+        res.end()
+      }
+    }
+
+    // internal search
+    this._search = async (searchObj={}, selectFields=[], limit = null) => {    
+        let collection = await _dataService.list(this.dataModel, searchObj, selectFields, limit);   
+        return collection;
     }
 
     this.create = async(req, res) => { 

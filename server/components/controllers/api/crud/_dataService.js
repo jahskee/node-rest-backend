@@ -1,5 +1,3 @@
-const settings = require('../../utils/settings');
-
 dataService = {};
 
 dataService.list = async (Model, searchObj, selectFields) => {
@@ -29,7 +27,7 @@ dataService.read = async (Model, id) => {
     dataObj = await Model.findOne({_id: id}); 
   } catch (err) {
     throw `\n${err} \n - Id=${id}\n`;
-  }          
+  }          Question
   return dataObj;   
 };
 

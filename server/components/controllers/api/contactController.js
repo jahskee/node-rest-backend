@@ -1,6 +1,6 @@
 const Contact = require('../../models/contactModel');
-const _dataService = require('./_dataService');
-const dataController = require('./_dataController');
+const _dataService = require('./crud/_dataService');
+const dataController = require('./crud/_dataController');
 
 
 const contactController = dataController;

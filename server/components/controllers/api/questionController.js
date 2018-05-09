@@ -1,6 +1,4 @@
-
-const settings = require('../../utils/settings');
-const DataController = require('./_dataController');
+const DataController = require('./crud/_dataController');
 const Question = require('../../models/questionModel');
 
 const controller = new DataController(Question);

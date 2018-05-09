@@ -1,9 +1,9 @@
-const DataController = require('./_dataController');
-const Example = require('../../../models/exampleModel');
+const DataController = require('./crud/_dataController');
+const Example = require('../../models/exampleModel');
 
 const controller = new DataController(Example);
 
-/* ---------- Default functions ----------
+/* ---------- Available or built-in functions ----------
 
 1. controller.list(req, res, {'searchKey': /searchVal/}, ['field1', 'field2'])
 

@@ -5,7 +5,6 @@ const Question = require('../../models/questionModel');
 
 const controller = new DataController(Question);
 
-
 controller.list = (req, res) => {
   controller._list(req, res);
 }

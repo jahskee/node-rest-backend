@@ -3,9 +3,11 @@ var fs = require('fs');
 
 const privateKey  = fs.readFileSync('./bin/sslcert/'+process.env.APP_ENVIRONMENT+'/server.key', 'utf8');
 const certificate = fs.readFileSync('./bin/sslcert/'+process.env.APP_ENVIRONMENT+'/server.crt', 'utf8');
+const intermediateCert = fs.readFileSync('./bin/sslcert/'+process.env.APP_ENVIRONMENT+'/intermediate.crt', 'utf8');
 const credentials = {
   key: privateKey, 
   cert: certificate,
+  ca: intermediateCert,
   ciphers: [
     "ECDHE-RSA-AES256-SHA384",
     "DHE-RSA-AES256-SHA384",

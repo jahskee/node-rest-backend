@@ -7,7 +7,7 @@ const certificate = fs.readFileSync('./bin/sslcert/'+process.env.APP_ENVIRONMENT
 const credentials = {
   key: privateKey, 
   cert: certificate,
- // ca: intermediateCert,
+  ca: intermediateCert,
   ciphers: [
     "ECDHE-RSA-AES256-SHA384",
     "DHE-RSA-AES256-SHA384",

@@ -54,6 +54,10 @@ app.use('/api', function(req, res, next) {
 const apiQuestions = require('./components/routes/api/api-questions');
 app.use('/api/questions', apiQuestions);
 
+// setup routes
+const apiCategory = require('./components/routes/api/api-category');
+app.use('/api/category', apiCategory);
+
 // add angular files
 app.use('/', express.static(path.join(__dirname,'../client/dist')));
 

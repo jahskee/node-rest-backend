@@ -1,9 +1,0 @@
-// unused but shows required variables
-APP_ENVIRONMENT='dev'
-
-APP_DB_USER=jahskee
-APP_DB_PASSWORD=Wingman2i
-APP_DB_DATABASE='cscie31'
-APP_PORT='80'
-APP_SECURED_PORT='443'
-APP_API_HOST='https://localhost'

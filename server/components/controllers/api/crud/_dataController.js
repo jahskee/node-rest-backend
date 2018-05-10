@@ -11,7 +11,7 @@ class DataController {
       let collection;
 
       try {
-        collection = await this._search({}, [], 5);
+        collection = await this._search({}, [], 200);
         res.json(collection);
       } catch (err) {
         console.log(err);

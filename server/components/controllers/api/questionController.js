@@ -9,11 +9,11 @@ class QuestionController extends DataController {
     /* ===================== custom CRUD ====================== */
 
     // -------- search category = 'Science' ------------
-    this.searchScienceIds = async (req, res) => {
+    this.searchScienceQuestions = async (req, res) => {
       //limit = req.params.limit
       let collection;
       try {
-        collection = await this._search({'category': /Science/}, ['_id'], 10);
+        collection = await this._search({'category': /Science/}, [], 10);
         res.json(collection);
       } catch (err) {
         console.log(err);
@@ -22,10 +22,10 @@ class QuestionController extends DataController {
     };
 
       // -------- search category = 'English' ------------
-      this.searchEnglishIds = async (req, res) => {
+      this.searchEnglishQuestions = async (req, res) => {
         let collection;
         try {
-          collection = await this._search({'category': /English/}, ['_id'], 10);
+          collection = await this._search({'category': /English/}, [], 10);
           res.json(collection);
         } catch (err) {
           console.log(err);

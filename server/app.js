@@ -2,7 +2,7 @@
 
 
 const express = require('express');
-var httpsRedirect = require('express-https-redirect');
+const httpsRedirect = require('express-https-redirect');
 
 const compression = require('compression')
 const path = require('path');

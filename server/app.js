@@ -21,11 +21,11 @@ const app = express();
 // add gz deflate - must be the first uses
 app.use(compression({filter: config_gzip.shouldCompress}))
 
-// connect to database with mongoose
-require('./components/utils/dbconnect');
-
 // redirect all to secured traffic
 app.use(httpsRedirect(true));
+
+// connect to database with mongoose
+require('./components/utils/dbconnect');
 
 app.use(cookieparser('cscie31-secret'));
 app.use(
@@ -85,5 +85,4 @@ app.use(function(err, req, res, next) {
 });
 
 //console.log({...process.env, APP_DB_USER:'', APP_DB_PASSWORD:''});
-
 module.exports = app;

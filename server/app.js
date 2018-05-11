@@ -13,13 +13,13 @@ const cookieparser = require('cookie-parser');
 const session = require('express-session');
 
 // ------- node express configurations --------
-const config_gzip = require('./config/config_gzip')
+const conf_gzip = require('./conf/gzip')
 
 // initialize express app
 const app = express();
 
 // add gz deflate - must be the first uses
-app.use(compression({filter: config_gzip.shouldCompress}))
+app.use(compression({filter: conf_gzip.shouldCompress}))
 
 // redirect all to secured traffic
 app.use(httpsRedirect(true));

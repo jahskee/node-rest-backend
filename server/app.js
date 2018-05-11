@@ -1,9 +1,10 @@
 'use strict';
 
-var compression = require('compression')
+
 const express = require('express');
 var httpsRedirect = require('express-https-redirect');
 
+const compression = require('compression')
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
@@ -11,14 +12,17 @@ const bodyparser = require('body-parser');
 const cookieparser = require('cookie-parser');
 const session = require('express-session');
 
-// connect to database with mongoose
-require('./components/utils/dbconnect');
+// ------- node express configurations --------
+const config_gzip = require('./config/config_gzip')
 
 // initialize express app
 const app = express();
 
 // add gz deflate - must be the first uses
-app.use(compression());
+app.use(compression({filter: config_gzip.shouldCompress}))
+
+// connect to database with mongoose
+require('./components/utils/dbconnect');
 
 // redirect all to secured traffic
 app.use(httpsRedirect(true));

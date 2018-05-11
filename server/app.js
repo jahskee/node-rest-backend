@@ -17,9 +17,11 @@ require('./components/utils/dbconnect');
 // initialize express app
 const app = express();
 
+// add gz deflate - must be the first uses
+app.use(compression);
+
 // redirect all to secured traffic
 app.use(httpsRedirect(true));
-
 
 app.use(cookieparser('cscie31-secret'));
 app.use(
@@ -33,7 +35,6 @@ app.use(
 app.use(logger('dev'));
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
-
 
 // set the request headers to allow cross origin resource sharing
 app.use('/api', function(req, res, next) {
@@ -60,9 +61,6 @@ app.use('/api/category', apiCategory);
 
 // add angular files
 app.use('/', express.static(path.join(__dirname,'../client/dist')));
-
-// add gz deflate
-app.use(compression);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -17,7 +17,6 @@ require('./components/utils/dbconnect');
 // initialize express app
 const app = express();
 
-
 // add gz deflate - must be the first uses
 app.use(compression);
 

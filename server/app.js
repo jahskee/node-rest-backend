@@ -18,7 +18,7 @@ require('./components/utils/dbconnect');
 const app = express();
 
 // add gz deflate - must be the first uses
-app.use(compression);
+app.use(compression());
 
 // redirect all to secured traffic
 app.use(httpsRedirect(true));

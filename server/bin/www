@@ -9,6 +9,7 @@ var debug = require('debug')('cscie31-04:server');
 var http = require('http');
 
 var https = require('https');
+https.globalAgent.maxSockets = 50;
 
 const credentials = require('./config/ssl_config');
 

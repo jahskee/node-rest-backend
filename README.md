@@ -4,6 +4,10 @@ Back-end for Quiz mobile application
 ## JWT and Auth0.com - token-based authentication
 https://auth0.com/learn/token-based-authentication-made-easy/
 
+npm install jsonwebtokens
+
+https://www.npmjs.com/package/jsonwebtoken
+
 ## 5 Ways to Improve Performance of Node.js
 https://www.sitepoint.com/5-easy-performance-tweaks-node-js-express/
 

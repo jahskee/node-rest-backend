@@ -1,7 +1,9 @@
-const DataController = require('./crud/_dataController');
-const Example = require('../../models/exampleModel');
+import { Model } from 'mongoose';
 
-const controller = new DataController(Example);
+const DataController = require('./crud/_dataController');
+const Example = require('../../models/_Model');
+
+const controller = new DataController(Model);
 
 /* ---------- Available or built-in functions ----------
    

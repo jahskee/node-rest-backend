@@ -1,7 +1,7 @@
 # quiz-node-rest-back-end
 Back-end for Quiz mobile application
 
-## JWT and Auth0 - token-based authentication
+## JWT and Auth0.com - token-based authentication
 https://auth0.com/learn/token-based-authentication-made-easy/
 
 ## 5 Ways to Improve Performance of Node.js

@@ -1,6 +1,5 @@
 'use strict';
 
-
 const express = require('express');
 const httpsRedirect = require('express-https-redirect');
 
@@ -11,6 +10,7 @@ const logger = require('morgan');
 const bodyparser = require('body-parser');
 const cookieparser = require('cookie-parser');
 const session = require('express-session');
+const jwt = require('jsonwebtoken');
 
 // ------- node express configurations --------
 const conf_gzip = require('./conf/gzip')
@@ -40,6 +40,14 @@ app.use(logger('dev'));
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 
+// generate jwt tokent - simple implementation
+app.get('/token', function(req, res){
+	var token = jwt.sign({username:"jahskee", role:admin},
+						 'supersecret',
+						 {expiresIn: 3.154e+12}); // expires in 1 century
+	res.send(token)
+})
+ 
 // set the request headers to allow cross origin resource sharing
 app.use('/api', function(req, res, next) {
 	res.set({
@@ -54,6 +62,18 @@ app.use('/api', function(req, res, next) {
 	}
 	next();
 });
+
+// Protect /api* route with JWT
+app.use('/api*', function(req, res, next){
+	var token = req.query.token;
+	jwt.verify(token, 'supersecret', function(err, decoded){
+	  if(!err){	
+		next()
+	  } else {
+		res.send('API Access Not Authorized!');
+	  }
+	})
+})
   
 // setup routes
 const apiQuestions = require('./components/routes/api/api-questions');

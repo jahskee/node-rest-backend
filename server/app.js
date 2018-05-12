@@ -12,13 +12,12 @@ const cookieparser = require('cookie-parser');
 const session = require('express-session');
 const jwt = require('jsonwebtoken');
 
-// ------- node express configurations --------
-const conf_gzip = require('./conf/gzip')
-
 // initialize express app
 const app = express();
 
+// ------- node express configurations --------
 // add gz deflate - must be the first uses
+const conf_gzip = require('./conf/gzip')
 app.use(compression({filter: conf_gzip.shouldCompress}))
 
 // redirect all to secured traffic
@@ -40,12 +39,19 @@ app.use(logger('dev'));
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+
 // generate jwt tokent - simple implementation
 app.get('/token', function(req, res){
-	var token = jwt.sign({username:"jahskee", role:admin},
-						 'supersecret',
-						 {expiresIn: 3.154e+12}); // expires in 1 century
-	res.send(token)
+	try {
+		var token = jwt.sign({email:"jahskee@yahoo.com", role:'admin'},
+		'supersecret',
+		{expiresIn: 3.154e+12}); // expires in 1 century
+		res.send(token)
+	}catch (err) {
+		res.send(err)
+	}
 })
  
 // set the request headers to allow cross origin resource sharing
@@ -63,7 +69,7 @@ app.use('/api', function(req, res, next) {
 	next();
 });
 
-// Protect /api* route with JWT
+// Protect route with JWT Token
 app.use('/api*', function(req, res, next){
 	var token = req.query.token;
 	jwt.verify(token, 'supersecret', function(err, decoded){

@@ -1,11 +1,20 @@
-'use strict';
-var fs = require('fs');
+"use strict";
+var fs = require("fs");
 
-const privateKey  = fs.readFileSync('./bin/sslcert/'+process.env.APP_ENVIRONMENT+'/private.key', 'utf8');
-const certificate = fs.readFileSync('./bin/sslcert/'+process.env.APP_ENVIRONMENT+'/certificate.crt', 'utf8');
-const ca_bundle = fs.readFileSync('./bin/sslcert/'+process.env.APP_ENVIRONMENT+'/ca_bundle.crt', 'utf8');
+const privateKey = fs.readFileSync(
+  "./bin/sslcert/" + process.env.APP_ENVIRONMENT + "/private.key",
+  "utf8"
+);
+const certificate = fs.readFileSync(
+  "./bin/sslcert/" + process.env.APP_ENVIRONMENT + "/certificate.crt",
+  "utf8"
+);
+const ca_bundle = fs.readFileSync(
+  "./bin/sslcert/" + process.env.APP_ENVIRONMENT + "/ca_bundle.crt",
+  "utf8"
+);
 const credentials = {
-  key: privateKey, 
+  key: privateKey,
   cert: certificate,
   ca: ca_bundle,
   ciphers: [
@@ -25,8 +34,8 @@ const credentials = {
     "!PSK",
     "!SRP",
     "!CAMELLIA"
-].join(':'),
-honorCipherOrder: true
+  ].join(":"),
+  honorCipherOrder: true
 };
 
 module.exports = credentials;

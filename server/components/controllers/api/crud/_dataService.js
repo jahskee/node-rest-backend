@@ -43,7 +43,7 @@ dataService.update = async (Model, paramObj) => {
   return question;
 };
 
-dataService.delete = async (id) => {
+dataService.delete = async (Model, id) => {
   let dataObj;
   try {
     dataObj = await Model.findOne({_id: id}); 

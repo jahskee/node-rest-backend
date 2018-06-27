@@ -73,6 +73,7 @@ app.use("/api", function(req, res, next) {
 });
 
 // Protect route with JWT Token
+/*
 app.use("/api*", function(req, res, next) {
   var token = req.query.token;
   jwt.verify(token, "supersecret", function(err, decoded) {
@@ -83,6 +84,7 @@ app.use("/api*", function(req, res, next) {
     }
   });
 });
+*/
 
 // setup routes
 const apiQuestions = require("./components/routes/api/api-questions");

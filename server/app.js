@@ -99,8 +99,8 @@ const apiBooks = require("./components/routes/api/api-books");
 app.use("/api/books", apiBooks);
 
 
-// add angular files
-//app.use("/", express.static(path.join(__dirname, "../../weather/build")));
+// add bookshelves app
+app.use("/bookshelves", express.static(path.join(__dirname, "../../bookshelves/build")));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

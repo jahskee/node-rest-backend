@@ -101,6 +101,9 @@ app.use("/api/books", apiBooks);
 // add angular files
 app.use("/", express.static(path.join(__dirname, "../client/dist")));
 
+// add angular files
+app.use("/bookshelves", express.static(path.join(__dirname, "../../bookshelves/build")));
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error("Not Found");

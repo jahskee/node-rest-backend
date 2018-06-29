@@ -98,11 +98,12 @@ app.use("/api/category", apiCategory);
 const apiBooks = require("./components/routes/api/api-books");
 app.use("/api/books", apiBooks);
 
-// add angular files
-app.use("/", express.static(path.join(__dirname, "../client/dist")));
 
 // add angular files
 app.use("/bookshelves", express.static(path.join(__dirname, "../../bookshelves/build")));
+
+// add angular files
+app.use("/", express.static(path.join(__dirname, "../client/dist")));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

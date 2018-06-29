@@ -98,9 +98,9 @@ app.use("/api/category", apiCategory);
 const apiBooks = require("./components/routes/api/api-books");
 app.use("/api/books", apiBooks);
 
-
-// add bookshelves app
+// add react front end modules
 app.use("/bookshelves", express.static(path.join(__dirname, "../../bookshelves/build")));
+app.use("/weather", express.static(path.join(__dirname, "../../weather/build")));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

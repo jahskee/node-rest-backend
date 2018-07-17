@@ -101,6 +101,7 @@ app.use("/api/books", apiBooks);
 // add react front end modules
 app.use("/bookshelves", express.static(path.join(__dirname, "../../bookshelves/build")));
 app.use("/weather", express.static(path.join(__dirname, "../../weather/build")));
+app.use("/asks", express.static(path.join(__dirname, "../../asks/build")));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

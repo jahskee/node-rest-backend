@@ -21,3 +21,4 @@ https://medium.com/@muratcorlu/mocking-rest-endpoints-in-web-apps-easy-way-d4cd0
 
 ## Pure Functions vs Mocking
 https://medium.com/javascript-scene/mocking-is-a-code-smell-944a70c90a6a
+
